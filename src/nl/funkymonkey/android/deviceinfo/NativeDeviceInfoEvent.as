@@ -11,7 +11,7 @@ package nl.funkymonkey.android.deviceinfo {
 	 */
 	public class NativeDeviceInfoEvent extends Event {
 		
-		public static const PROPERTIES_PARSED:String = "DeviceTrackingEvent.PROPERTIES_PARSED";
+		public static const PROPERTIES_PARSED:String = "NativeDeviceInfoEvent.PROPERTIES_PARSED";
 
 		public function NativeDeviceInfoEvent(type : String, bubbles : Boolean = false, cancelable : Boolean = false) {
 			super(type, bubbles, cancelable);
