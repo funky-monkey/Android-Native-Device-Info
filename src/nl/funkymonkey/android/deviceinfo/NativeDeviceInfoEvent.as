@@ -1,4 +1,4 @@
-package nl.funkymonkey.android.analytics {
+package nl.funkymonkey.android.deviceinfo {
 
 	import flash.events.Event;
 

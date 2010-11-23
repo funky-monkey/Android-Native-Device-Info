@@ -1,4 +1,4 @@
-package nl.funkymonkey.android.analytics {
+package nl.funkymonkey.android.deviceinfo {
 	/*
 	 * Copyright (c) 2010 Funky Monkey Studio, All Rights Reserved 
 	 * 
@@ -6,12 +6,12 @@ package nl.funkymonkey.android.analytics {
 	 * contact  sidney@funky-monkey.nl
 	 * 
 	 */
-	public class PropertyVO {
+	public class NativeDevicePropertiesData {
 
 		private var _configKey : String;
 		private var _value : String;		private var _label : String;
 
-		public function PropertyVO(ck : String, label:String) {
+		public function NativeDevicePropertiesData(ck : String, label:String) {
 			_configKey = ck;			_label = label;
 		}
 
