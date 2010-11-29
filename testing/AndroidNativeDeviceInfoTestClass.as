@@ -8,7 +8,9 @@ package {
 	import flash.filesystem.File;
 
 	public class AndroidNativeDeviceInfoTestClass extends Sprite {
+	
 		public function AndroidNativeDeviceInfoTestClass() {
+		
 			var deviceInfo : NativeDeviceInfo = new NativeDeviceInfo(File.applicationDirectory.nativePath + File.separator + "build.prop_htc_desire");
 			deviceInfo.addEventListener(NativeDeviceInfoEvent.PROPERTIES_PARSED, handleDevicePropertiesParsed);
 			deviceInfo.setDebug(false);
@@ -16,6 +18,7 @@ package {
 		}
 
 		private function handleDevicePropertiesParsed(event : NativeDeviceInfoEvent) : void {
+		
 			NativeDeviceInfo(event.target).removeEventListener(NativeDeviceInfoEvent.PROPERTIES_PARSED, handleDevicePropertiesParsed);
 
 			trace(NativeDevicePropertiesData(NativeDeviceProperties.OS_NAME).label + " - " + NativeDevicePropertiesData(NativeDeviceProperties.OS_NAME).value);

@@ -26,25 +26,26 @@ package nl.funkymonkey.android.deviceinfo {
 	 * 		private function handleDevicePropertiesParsed(event : NativeDeviceInfoEvent) : void {
 	 * 	   		 NativeDeviceInfo(event.target).removeEventListener(NativeDeviceInfoEvent.PROPERTIES_PARSED, handleDevicePropertiesParsed);
 	 * 	   		 	
-	 * 	   		 trace(PropertyVO(NativeDeviceProperties.OS_NAME).label + " - " + PropertyVO(NativeDeviceProperties.OS_NAME).value);
-	 * 	   		 trace(PropertyVO(NativeDeviceProperties.OS_VERSION).label + " - " + PropertyVO(NativeDeviceProperties.OS_VERSION).value);
-	 * 	   		 trace(PropertyVO(NativeDeviceProperties.OS_BUILD).label + " - " + PropertyVO(NativeDeviceProperties.OS_BUILD).value);
-	 * 	   		 trace(PropertyVO(NativeDeviceProperties.OS_SDK_VERSION).label + " - " + PropertyVO(NativeDeviceProperties.OS_SDK_VERSION).value);
-	 * 	   		 trace(PropertyVO(NativeDeviceProperties.OS_SDK_DESCRIPTION).label + " - " + PropertyVO(NativeDeviceProperties.OS_SDK_DESCRIPTION).value);
-	 * 	   		 trace(PropertyVO(NativeDeviceProperties.PRODUCT_MODEL).label + " - " + PropertyVO(NativeDeviceProperties.PRODUCT_MODEL).value);
-	 * 	   		 trace(PropertyVO(NativeDeviceProperties.PRODUCT_BRAND).label + " - " + PropertyVO(NativeDeviceProperties.PRODUCT_BRAND).value);
-	 * 	   		 trace(PropertyVO(NativeDeviceProperties.PRODUCT_NAME).label + " - " + PropertyVO(NativeDeviceProperties.PRODUCT_NAME).value);
-	 * 	   		 trace(PropertyVO(NativeDeviceProperties.PRODUCT_VERSION).label + " - " + PropertyVO(NativeDeviceProperties.PRODUCT_VERSION).value);
-	 * 	   		 trace(PropertyVO(NativeDeviceProperties.PRODUCT_BOARD).label + " - " + PropertyVO(NativeDeviceProperties.PRODUCT_BOARD).value);
-	 * 	   		 trace(PropertyVO(NativeDeviceProperties.PRODUCT_CPU).label + " - " + PropertyVO(NativeDeviceProperties.PRODUCT_CPU).value);
-	 * 	   		 trace(PropertyVO(NativeDeviceProperties.PRODUCT_MANUFACTURER).label + " - " + PropertyVO(NativeDeviceProperties.PRODUCT_MANUFACTURER).value);
-	 * 	   		 trace(PropertyVO(NativeDeviceProperties.OPENGLES_VERSION).label + " - " + PropertyVO(NativeDeviceProperties.OPENGLES_VERSION).value);
-	 * 	   		 trace(PropertyVO(NativeDeviceProperties.LCD_DENSITY).label + " - " + PropertyVO(NativeDeviceProperties.LCD_DENSITY).value);
-	 * 	   		 trace(PropertyVO(NativeDeviceProperties.DALVIK_HEAPSIZE).label + " - " + PropertyVO(NativeDeviceProperties.DALVIK_HEAPSIZE).value);
+	 * 	   		 trace(NativeDevicePropertiesData(NativeDeviceProperties.OS_NAME).label + " - " + NativeDevicePropertiesData(NativeDeviceProperties.OS_NAME).value);
+	 * 	   		 trace(NativeDevicePropertiesData(NativeDeviceProperties.OS_VERSION).label + " - " + NativeDevicePropertiesData(NativeDeviceProperties.OS_VERSION).value);
+	 * 	   		 trace(NativeDevicePropertiesData(NativeDeviceProperties.OS_BUILD).label + " - " + NativeDevicePropertiesData(NativeDeviceProperties.OS_BUILD).value);
+	 * 	   		 trace(NativeDevicePropertiesData(NativeDeviceProperties.OS_SDK_VERSION).label + " - " + NativeDevicePropertiesData(NativeDeviceProperties.OS_SDK_VERSION).value);
+	 * 	   		 trace(NativeDevicePropertiesData(NativeDeviceProperties.OS_SDK_DESCRIPTION).label + " - " + NativeDevicePropertiesData(NativeDeviceProperties.OS_SDK_DESCRIPTION).value);
+	 * 	   		 trace(NativeDevicePropertiesData(NativeDeviceProperties.PRODUCT_MODEL).label + " - " + NativeDevicePropertiesData(NativeDeviceProperties.PRODUCT_MODEL).value);
+	 * 	   		 trace(NativeDevicePropertiesData(NativeDeviceProperties.PRODUCT_BRAND).label + " - " + NativeDevicePropertiesData(NativeDeviceProperties.PRODUCT_BRAND).value);
+	 * 	   		 trace(NativeDevicePropertiesData(NativeDeviceProperties.PRODUCT_NAME).label + " - " + NativeDevicePropertiesData(NativeDeviceProperties.PRODUCT_NAME).value);
+	 * 	   		 trace(NativeDevicePropertiesData(NativeDeviceProperties.PRODUCT_VERSION).label + " - " + NativeDevicePropertiesData(NativeDeviceProperties.PRODUCT_VERSION).value);
+	 * 	   		 trace(NativeDevicePropertiesData(NativeDeviceProperties.PRODUCT_BOARD).label + " - " + NativeDevicePropertiesData(NativeDeviceProperties.PRODUCT_BOARD).value);
+	 * 	   		 trace(NativeDevicePropertiesData(NativeDeviceProperties.PRODUCT_CPU).label + " - " + NativeDevicePropertiesData(NativeDeviceProperties.PRODUCT_CPU).value);
+	 * 	   		 trace(NativeDevicePropertiesData(NativeDeviceProperties.PRODUCT_MANUFACTURER).label + " - " + NativeDevicePropertiesData(NativeDeviceProperties.PRODUCT_MANUFACTURER).value);
+	 * 	   		 trace(NativeDevicePropertiesData(NativeDeviceProperties.OPENGLES_VERSION).label + " - " + NativeDevicePropertiesData(NativeDeviceProperties.OPENGLES_VERSION).value);
+	 * 	   		 trace(NativeDevicePropertiesData(NativeDeviceProperties.LCD_DENSITY).label + " - " + NativeDevicePropertiesData(NativeDeviceProperties.LCD_DENSITY).value);
+	 * 	   		 trace(NativeDevicePropertiesData(NativeDeviceProperties.DALVIK_HEAPSIZE).label + " - " + NativeDevicePropertiesData(NativeDeviceProperties.DALVIK_HEAPSIZE).value);
 	 * 		}
 	 * 
 	 */
 	public class NativeDeviceInfo extends EventDispatcher {
+	
 		private static const PROP_FILE_ON_DEVICE : String = "/system/build.prop";
 		private var _debug : Boolean;
 		private var _fileName : String;
