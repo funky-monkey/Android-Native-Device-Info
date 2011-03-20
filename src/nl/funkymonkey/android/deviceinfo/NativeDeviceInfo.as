@@ -17,9 +17,7 @@ package nl.funkymonkey.android.deviceinfo{
 	 * 
 	 * Usage:
 	 * 
-	 * 		var deviceInfo : NativeDeviceInfo = new NativeDeviceInfo();
-	 * 		deviceInfo.setDebug(false);
-	 * 		deviceInfo.parse();
+	 * 		NativeDeviceInfo.parse();
 	 * 		
 	 * 	   	trace(NativeDevicePropertiesData(NativeDeviceProperties.OS_NAME).label + " - " + NativeDevicePropertiesData(NativeDeviceProperties.OS_NAME).value);
 	 * 	   	trace(NativeDevicePropertiesData(NativeDeviceProperties.OS_VERSION).label + " - " + NativeDevicePropertiesData(NativeDeviceProperties.OS_VERSION).value);
@@ -41,17 +39,11 @@ package nl.funkymonkey.android.deviceinfo{
 	public class NativeDeviceInfo{
 	
 		private static const PROP_FILE_ON_DEVICE : String = "/system/build.prop";
-		private var _debug : Boolean;
-		private var _fileName : String;
 
-		public function NativeDeviceInfo(propfilename : String = PROP_FILE_ON_DEVICE, debug : Boolean = false) {
-			_debug = debug;
-			_fileName = propfilename;
-		}
-
-		public function parse() : void {
+		public static function parse(propfilename : String = PROP_FILE_ON_DEVICE, debug : Boolean = false) : void {
+			
 			var propFile : File = new File();
-			propFile.nativePath = _fileName;
+			propFile.nativePath = propfilename;
 
 			var fs : FileStream = new FileStream();
 			fs.open(propFile, FileMode.READ);
@@ -71,7 +63,7 @@ package nl.funkymonkey.android.deviceinfo{
 						for (var j : int = 0; j < NativeDeviceProperties.DEVICE_PROPERTIES.length; j++) {
 							if ( line.search(NativeDevicePropertiesData(NativeDeviceProperties.DEVICE_PROPERTIES[j]).configKey) != -1) {
 								NativeDevicePropertiesData(NativeDeviceProperties.DEVICE_PROPERTIES[j]).value = line.split("=")[1];
-								if ( _debug ) {
+								if ( debug ) {
 									trace(NativeDevicePropertiesData(NativeDeviceProperties.DEVICE_PROPERTIES[j]).label + " - " + NativeDevicePropertiesData(NativeDeviceProperties.DEVICE_PROPERTIES[j]).value);
 									trace(NativeDevicePropertiesData(NativeDeviceProperties.OS_BUILD).label + " - " + NativeDevicePropertiesData(NativeDeviceProperties.OS_BUILD).value);
 								}
@@ -81,14 +73,6 @@ package nl.funkymonkey.android.deviceinfo{
 					}
 				}
 			}
-		}
-
-		public function getDebug() : Boolean {
-			return _debug;
-		}
-
-		public function setDebug(value : Boolean) : void {
-			_debug = value;
 		}
 	}
 }

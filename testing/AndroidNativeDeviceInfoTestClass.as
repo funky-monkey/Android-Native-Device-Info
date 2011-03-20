@@ -1,4 +1,5 @@
-package{
+package
+{
 	import nl.funkymonkey.android.deviceinfo.NativeDeviceInfo;
 	import nl.funkymonkey.android.deviceinfo.NativeDeviceProperties;
 
@@ -9,9 +10,7 @@ package{
 	
 		public function AndroidNativeDeviceInfoTestClass() {
 		
-			var deviceInfo : NativeDeviceInfo = new NativeDeviceInfo(File.applicationDirectory.nativePath + File.separator + "build.prop_htc_desire");
-			deviceInfo.setDebug(false);
-			deviceInfo.parse();
+			NativeDeviceInfo.parse(File.applicationDirectory.nativePath + File.separator + "build.prop_htc_desire");
 			
 			trace(NativeDeviceProperties.OS_NAME.label + " - " + NativeDeviceProperties.OS_NAME.value);
 			trace(NativeDeviceProperties.OS_VERSION.label + " - " + NativeDeviceProperties.OS_VERSION.value);

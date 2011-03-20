@@ -3,10 +3,7 @@ Android Native Device Info:
 Grab native device info like OS, Model, Brand, SDK Version and CPU. These AS3 classes uses Adobe AIR for Android to grab an Android system file named /system/build.prop, parse it and store its values in an nice value object for you to use. This parsed information is mainly used for analytics.
 
 Usage:
-var deviceInfo : NativeDeviceInfo = new NativeDeviceInfo();
-deviceInfo.setDebug(false);
-deviceInfo.parse();
- 
+NativeDeviceInfo.parse();
 
 trace(NativeDeviceProperties.OS_NAME.label + " - " + NativeDeviceProperties.OS_NAME.value);
 trace(NativeDeviceProperties.OS_VERSION.label + " - " + NativeDeviceProperties.OS_VERSION.value);
