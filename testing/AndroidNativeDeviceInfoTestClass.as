@@ -1,8 +1,6 @@
-package {
+package{
 	import nl.funkymonkey.android.deviceinfo.NativeDeviceInfo;
-	import nl.funkymonkey.android.deviceinfo.NativeDeviceInfoEvent;
 	import nl.funkymonkey.android.deviceinfo.NativeDeviceProperties;
-	import nl.funkymonkey.android.deviceinfo.NativeDevicePropertiesData;
 
 	import flash.display.Sprite;
 	import flash.filesystem.File;
@@ -12,15 +10,9 @@ package {
 		public function AndroidNativeDeviceInfoTestClass() {
 		
 			var deviceInfo : NativeDeviceInfo = new NativeDeviceInfo(File.applicationDirectory.nativePath + File.separator + "build.prop_htc_desire");
-			deviceInfo.addEventListener(NativeDeviceInfoEvent.PROPERTIES_PARSED, handleDevicePropertiesParsed);
 			deviceInfo.setDebug(false);
 			deviceInfo.parse();
-		}
-
-		private function handleDevicePropertiesParsed(event : NativeDeviceInfoEvent) : void {
-		
-			NativeDeviceInfo(event.target).removeEventListener(NativeDeviceInfoEvent.PROPERTIES_PARSED, handleDevicePropertiesParsed);
-
+			
 			trace(NativeDeviceProperties.OS_NAME.label + " - " + NativeDeviceProperties.OS_NAME.value);
 			trace(NativeDeviceProperties.OS_VERSION.label + " - " + NativeDeviceProperties.OS_VERSION.value);
 			trace(NativeDeviceProperties.OS_BUILD.label + " - " + NativeDeviceProperties.OS_BUILD.value);
